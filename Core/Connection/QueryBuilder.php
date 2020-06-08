@@ -17,7 +17,7 @@ class QueryBuilder implements PDOConnection
 
 	protected $pdo;
 
-
+	// On récupère la méthode d'instanciation PDO existante
 	public function __construct()
 	{
 		$this->pdo = new PDOConnection()
@@ -50,6 +50,7 @@ class QueryBuilder implements PDOConnection
 		return $this;
 	}
 
+	// On concatene les différents parties de la requête
 	public function getQuery()
 	{
 		$query = ['SELECT'];
@@ -86,6 +87,7 @@ class QueryBuilder implements PDOConnection
 		return join(' ', $query);
 	}
 
+	// Execution de la requête
 	public function execute()
 	{
 		$finalQuery = $this->getQuery();
